@@ -1,0 +1,26 @@
+.contNav {
+    display: flex;
+    gap: 24px;
+    background-color: transparent;
+    border-radius: 8px;
+    border-bottom: 0.5px solid #d8d6d6;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    margin-bottom: 20px;
+    list-style-type: none;
+}
+
+.link {
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 8px;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.active {
+    color: orange;
+}

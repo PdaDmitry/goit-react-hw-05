@@ -1,0 +1,24 @@
+.contLinkHome {
+    display: block;
+    width: 150px;
+    background-color: rgb(135, 132, 132);
+    border: 1px solid black;
+    padding: 8px;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}
+
+.contLinkHome:hover {
+    background-color: rgb(240, 236, 236);
+    color: black;
+}
+
+.contLinkHome:active {
+    background-color: rgb(187, 185, 185);
+    color: black;
+
+}
