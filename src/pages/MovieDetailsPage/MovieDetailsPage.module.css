@@ -1,0 +1,9 @@
+.contMovie {
+    display: flex;
+    gap: 20px;
+}
+
+.contDataMovie li {
+    list-style-type: none;
+    margin-bottom: 20px;
+}

@@ -1,21 +1,31 @@
 import { useEffect, useState } from 'react';
-import trendingMovies from '../api';
+import { getTrendingMovies } from '../api';
 import MovieList from '../components/MovieList/MovieList';
 
 export default function HomePage() {
   const [listMovies, setListMovies] = useState([]);
 
   useEffect(() => {
+    const controller = new AbortController(); //To cancel an http request that the request was not duplicated.
+
     async function fetchTrending() {
       try {
-        const result = await trendingMovies();
-        setListMovies(result);
-        console.log(result);
+        const results = await getTrendingMovies({
+          abortController: controller, //for controller
+        });
+        setListMovies(results);
+        // console.log('HomePage ', results);
       } catch (error) {
-        console.log(error);
+        if (error.code !== 'ERR_CANCELED') {
+          console.log(error);
+        }
       }
     }
     fetchTrending();
+
+    return () => {
+      controller.abort(); //for controller
+    };
   }, []);
 
   return (

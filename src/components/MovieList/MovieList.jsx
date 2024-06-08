@@ -6,7 +6,7 @@ export default function MovieList({ items }) {
     <ul className={css.contListMovies}>
       {items.map(item => (
         <li key={item.id}>
-          <Movie data={item} />
+          <Movie data={item} id={item.id} />
           {/* <>{item.title}</> */}
         </li>
       ))}
