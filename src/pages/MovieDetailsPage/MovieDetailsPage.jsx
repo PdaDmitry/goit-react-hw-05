@@ -38,7 +38,7 @@ export default function MovieDetailsPage() {
           <ul className={css.contDataMovie}>
             <li>
               <h2>
-                {movie.title}({movie.release_date.slice(0, 4)})
+                {movie.title} ({movie.release_date.slice(0, 4)})
               </h2>
             </li>
             <li>

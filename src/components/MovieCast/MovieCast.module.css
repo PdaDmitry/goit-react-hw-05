@@ -1,0 +1,11 @@
+.contCast {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 55px;
+    user-select: none;
+    list-style: none;
+}
+
+.actorPhoto {
+    width: calc((100% - 8 * 55px) / 9);
+}

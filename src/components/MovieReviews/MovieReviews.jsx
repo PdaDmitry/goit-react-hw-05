@@ -20,16 +20,16 @@ export default function MovieReviews() {
   }, [movieId]);
 
   return (
-    <div>
+    <ul>
       {reviews.results ? (
         reviews.results.map((review, index) => (
-          <div key={index} style={{ marginBottom: '20px' }}>
+          <li key={index} style={{ marginBottom: '20px' }}>
             {review.content}
-          </div>
+          </li>
         ))
       ) : (
         <p>No reviews available.</p>
       )}
-    </div>
+    </ul>
   );
 }
