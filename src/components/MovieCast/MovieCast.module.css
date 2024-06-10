@@ -9,3 +9,8 @@
 .actorPhoto {
     width: calc((100% - 8 * 55px) / 9);
 }
+
+.textCharacter {
+    font-style: italic;
+    text-decoration: underline;
+}

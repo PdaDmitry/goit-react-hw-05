@@ -29,14 +29,15 @@ export default function MovieCast() {
             <img
               src={
                 actor.profile_path
-                  ? `https://image.tmdb.org/t/p/w300${actor.profile_path}`
-                  : '../../../public/smile-3233682_1280.jpg'
+                  ? `https://image.tmdb.org/t/p/w300${actor.profile_path}` //https://cdn.pixabay.com/photo/2018/03/17/11/03/smile-3233682_1280.jpg
+                  : 'https://cdn.pixabay.com/photo/2018/03/17/11/03/smile-3233682_1280.jpg' ///        ../../../smile-3233682_1280.jpg
               }
               alt={actor.name}
               style={{ width: '100px', height: '150px', objectFit: 'cover' }}
             />
             <h3>{actor.name}</h3>
-            <p>Character: {actor.character}</p>
+            <p className={css.textCharacter}>Character:</p>
+            <p>{actor.character}</p>
           </li>
         ))
       ) : (
