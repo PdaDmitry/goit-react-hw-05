@@ -1,7 +1,13 @@
 import { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { NavLink, Outlet, useParams } from 'react-router-dom';
+// import clsx from 'clsx';
 import { getMovieById } from '../../api';
+import GoBack from '../../components/GoBack/GoBack';
 import css from './MovieDetailsPage.module.css';
+
+// const castReviewsLinkClass = ({ isActive }) => {
+//   return clsx(css.link, isActive && css.active);
+// };
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -29,11 +35,23 @@ export default function MovieDetailsPage() {
   }, [movieId]);
 
   return (
-    <div>
+    <div
+    // className={css.container}
+    // style={{
+    //   '--background-image': movie
+    //     ? `url(https://image.tmdb.org/t/p/w500${movie.backdrop_path})`
+    //     : 'none',
+    // }}
+    >
+      <GoBack />
       {movie && (
         <div className={css.contMovie}>
           <div>
-            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" />
+            <img
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              alt={movie.title}
+              style={{ maxWidth: '300px', borderRadius: '4px' }}
+            />
           </div>
           <ul className={css.contDataMovie}>
             <li>
@@ -60,12 +78,24 @@ export default function MovieDetailsPage() {
           </ul>
         </div>
       )}
-      <div>
-        <Link to="credits">Cast</Link>
-        <Link to="reviews">Reviews</Link>
+      <div className={css.contLink}>
+        <h3 className={css.titleInform}>Additional information</h3>
+        <ul className={css.contTextLink}>
+          <li>
+            <NavLink to="credits" className={css.castReviewsClass}>
+              Cast
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="reviews" className={css.castReviewsClass}>
+              Reviews
+            </NavLink>
+          </li>
+        </ul>
       </div>
-
-      <Outlet />
+      <div className={css.contOutlet}>
+        <Outlet />
+      </div>
     </div>
   );
 }

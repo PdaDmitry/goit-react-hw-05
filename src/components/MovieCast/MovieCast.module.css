@@ -14,3 +14,16 @@
     font-style: italic;
     text-decoration: underline;
 }
+
+.imgStyles {
+    width: 100px;
+    height: 150px;
+    cursor: pointer;
+    /* border-radius: 16px; */
+    object-fit: cover;
+    transition: transform 250ms ease-in-out;
+}
+
+.imgStyles:hover {
+    transform: scale(1.05);
+}

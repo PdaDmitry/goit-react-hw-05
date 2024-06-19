@@ -15,6 +15,7 @@ export const getTrendingMovies = async ({ abortController }) => {
   });
 
   const results = response.data.results;
+  // console.log('getTrendingMovies ', results);
   return results;
 };
 
@@ -31,26 +32,28 @@ export const getMovieById = async (movieId, { abortController }) => {
   return result;
 };
 
-export const getСast = async movieId => {
+export const getСast = async (movieId, { abortController }) => {
   const response = await axios.get(`/movie/${movieId}/credits`, {
+    signal: abortController.signal,
     params: {
       api_key: ACCESS_KEY,
       language: 'en-US',
     },
   });
-  console.log('cast ', response.data);
+  // console.log('cast ', response.data);
   const result = response.data;
   return result;
 };
 
-export const getReviews = async movieId => {
+export const getReviews = async (movieId, { abortController }) => {
   const response = await axios.get(`/movie/${movieId}/reviews`, {
+    signal: abortController.signal,
     params: {
       api_key: ACCESS_KEY,
       language: 'en-US',
     },
   });
-  console.log('reviews ', response.data);
+  // console.log('reviews ', response.data);
   const result = response.data;
   return result;
 };
@@ -67,7 +70,7 @@ export const searchMovies = async query => {
     },
   });
 
-  console.log('searchMovies ', response.data);
+  // console.log('searchMovies ', response.data);
   const result = response.data.results;
   return result;
 };

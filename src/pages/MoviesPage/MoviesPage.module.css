@@ -1,0 +1,38 @@
+.contSearch {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.input {
+    width: 300px;
+    padding: 6px;
+    border: none;
+    border-radius: 6px;
+    margin-right: 8px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+
+    outline: none;
+}
+
+.btnSearch {
+    background-color: white;
+    /* padding-left: 20px; */
+    padding: 6px 6px 6px 25px;
+    border-radius: 6px;
+    border: none;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.btnSearch:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+.iconSearch {
+    position: absolute;
+    top: 50%;
+    left: 23%;
+    transform: translate(-50%, -50%);
+    /* padding-top: 2px;
+    margin-right: 4px; */
+}
