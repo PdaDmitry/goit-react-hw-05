@@ -1,3 +1,9 @@
+.titleCast {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
 .contCast {
     display: flex;
     flex-wrap: wrap;
@@ -26,4 +32,8 @@
 
 .imgStyles:hover {
     transform: scale(1.05);
+}
+
+.noPhotos {
+    padding-bottom: 50px;
 }

@@ -15,7 +15,7 @@ export default function Loader() {
         wrapperStyle={{}}
         wrapperClass=""
       />
-      <p className={css.loaderText}> Loading movies, please wait...</p>
+      <p className={css.loaderText}> Loading, please wait...</p>
     </div>
   );
 }

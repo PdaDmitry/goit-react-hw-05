@@ -7,7 +7,6 @@ export default function MovieList({ items }) {
       {items.map(item => (
         <li key={item.id}>
           <Movie data={item} id={item.id} />
-          {/* <>{item.title}</> */}
         </li>
       ))}
     </ul>

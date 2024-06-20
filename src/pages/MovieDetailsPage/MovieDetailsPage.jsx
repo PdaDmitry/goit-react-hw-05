@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { NavLink, Outlet, useParams } from 'react-router-dom';
-// import clsx from 'clsx';
 import { getMovieById } from '../../api';
+
 import GoBack from '../../components/GoBack/GoBack';
+import Loader from '../../components/Loader/Loader';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import css from './MovieDetailsPage.module.css';
 
-// const castReviewsLinkClass = ({ isActive }) => {
-//   return clsx(css.link, isActive && css.active);
-// };
-
 export default function MovieDetailsPage() {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
 
@@ -18,13 +18,19 @@ export default function MovieDetailsPage() {
 
     async function fetchMovieId() {
       try {
+        setLoading(true);
+        setError(false);
+
         const result = await getMovieById(movieId, { abortController: controller }); //received movie by id
         setMovie(result);
         // console.log('MovieDetails ', result);
       } catch (error) {
         if (error.code !== 'ERR_CANCELED') {
           console.log(error);
+          setError(true);
         }
+      } finally {
+        setLoading(false);
       }
     }
     fetchMovieId();
@@ -35,15 +41,19 @@ export default function MovieDetailsPage() {
   }, [movieId]);
 
   return (
-    <div
-    // className={css.container}
-    // style={{
-    //   '--background-image': movie
-    //     ? `url(https://image.tmdb.org/t/p/w500${movie.backdrop_path})`
-    //     : 'none',
-    // }}
-    >
+    <div className={css.container}>
+      {movie && (
+        <div
+          className={css.backgroundOverlay}
+          style={{
+            backgroundImage: `url(https://image.tmdb.org/t/p/w500${movie.backdrop_path})`,
+          }}
+        />
+      )}
+
       <GoBack />
+      {loading && <Loader />}
+      {error && <ErrorMessage />}
       {movie && (
         <div className={css.contMovie}>
           <div>
@@ -58,10 +68,11 @@ export default function MovieDetailsPage() {
               <h2>
                 {movie.title} ({movie.release_date.slice(0, 4)})
               </h2>
+              <p>User score: {Math.round(movie.vote_average * 10)}%</p>
             </li>
             <li>
               <h3>Country</h3>
-              <p>{movie.production_countries.map(item => item.name).join(' ')}</p>
+              <p>{movie.production_countries.map(item => item.name).join(', ')}</p>
             </li>
             <li>
               <h3>Overview: </h3>
@@ -69,7 +80,7 @@ export default function MovieDetailsPage() {
             </li>
             <li>
               <h3>Genres</h3>
-              <p>{movie.genres.map(item => item.name).join(' ')}</p>
+              <p>{movie.genres.map(item => item.name).join(', ')}</p>
             </li>
             <li>
               <h4>Original Language:</h4>
@@ -82,7 +93,7 @@ export default function MovieDetailsPage() {
         <h3 className={css.titleInform}>Additional information</h3>
         <ul className={css.contTextLink}>
           <li>
-            <NavLink to="credits" className={css.castReviewsClass}>
+            <NavLink to="cast" className={css.castReviewsClass}>
               Cast
             </NavLink>
           </li>
@@ -94,7 +105,9 @@ export default function MovieDetailsPage() {
         </ul>
       </div>
       <div className={css.contOutlet}>
-        <Outlet />
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
       </div>
     </div>
   );

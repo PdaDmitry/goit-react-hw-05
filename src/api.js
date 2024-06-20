@@ -27,7 +27,7 @@ export const getMovieById = async (movieId, { abortController }) => {
       language: 'en-US',
     },
   });
-  // console.log('MovieDetails ', response.data);
+  console.log('MovieDetails ', response.data);
   const result = response.data;
   return result;
 };
@@ -72,5 +72,6 @@ export const searchMovies = async query => {
 
   // console.log('searchMovies ', response.data);
   const result = response.data.results;
-  return result;
+  const totalResult = response.data.total_results;
+  return { result, totalResult };
 };
