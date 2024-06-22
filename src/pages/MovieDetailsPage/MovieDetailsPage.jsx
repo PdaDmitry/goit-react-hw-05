@@ -94,12 +94,12 @@ export default function MovieDetailsPage() {
         <ul className={css.contTextLink}>
           <li>
             <NavLink to="cast" className={css.castReviewsClass}>
-              Cast
+              <p>Cast</p>
             </NavLink>
           </li>
           <li>
             <NavLink to="reviews" className={css.castReviewsClass}>
-              Reviews
+              <p>Reviews</p>
             </NavLink>
           </li>
         </ul>

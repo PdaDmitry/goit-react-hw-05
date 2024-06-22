@@ -27,7 +27,7 @@ export const getMovieById = async (movieId, { abortController }) => {
       language: 'en-US',
     },
   });
-  console.log('MovieDetails ', response.data);
+  // console.log('MovieDetails ', response.data);
   const result = response.data;
   return result;
 };

@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { SiThemoviedatabase } from 'react-icons/si';
 import clsx from 'clsx';
 import css from './Navigation.module.css';
 
@@ -8,7 +9,8 @@ const navLinkClass = ({ isActive }) => {
 
 export default function Navigation() {
   return (
-    <nav>
+    <nav className={css.container}>
+      <SiThemoviedatabase className={css.icon} />
       <ul className={css.contNav}>
         <li>
           <NavLink to="/" className={navLinkClass}>
