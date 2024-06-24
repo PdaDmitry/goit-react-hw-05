@@ -8,8 +8,8 @@
 .contLinkHome {
     display: block;
     width: 150px;
-    background-color: rgb(16, 177, 91);
-    border: 1px solid black;
+    background-color: rgb(138, 147, 147);
+    /* border: 1px solid black; */
     padding: 8px;
     cursor: pointer;
     user-select: none;
@@ -21,17 +21,17 @@
 }
 
 .contLinkHome:hover {
-    background-color: rgb(148, 232, 51);
+    background-color: rgb(172, 187, 187);
     color: black;
 }
 
 .contLinkHome:active {
-    background-color: rgb(42, 218, 115);
+    background-color: rgb(199, 202, 200);
     color: black;
 }
 
 .textMessage {
-    color: rgb(255, 145, 0);
+    color: black;
     font-size: 22px;
     margin-bottom: 20px;
 }

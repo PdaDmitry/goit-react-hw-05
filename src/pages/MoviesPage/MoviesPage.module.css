@@ -1,5 +1,4 @@
 .contSearch {
-    position: relative;
     margin-bottom: 10px;
 }
 
@@ -15,6 +14,7 @@
 }
 
 .btnSearch {
+    position: relative;
     background-color: white;
     /* padding-left: 20px; */
     padding: 6px 6px 6px 25px;
@@ -31,8 +31,6 @@
 .iconSearch {
     position: absolute;
     top: 50%;
-    left: 23%;
+    left: 18%;
     transform: translate(-50%, -50%);
-    /* padding-top: 2px;
-    margin-right: 4px; */
 }

@@ -51,7 +51,7 @@ export default function MovieCast() {
                   src={
                     actor.profile_path
                       ? `https://image.tmdb.org/t/p/w300${actor.profile_path}`
-                      : 'https://cdn.pixabay.com/photo/2018/03/17/11/03/smile-3233682_1280.jpg' ///        ../../../smile-3233682_1280.jpg
+                      : 'https://cdn.pixabay.com/photo/2018/03/17/11/03/smile-3233682_1280.jpg'
                   }
                   alt={actor.name}
                   className={css.imgStyles}

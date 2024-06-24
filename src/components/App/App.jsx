@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 
 import Title from '../Title/Title';
@@ -15,11 +15,17 @@ const MovieCast = lazy(() => import('../MovieCast/MovieCast'));
 const MovieReviews = lazy(() => import('../MovieReviews/MovieReviews'));
 
 export default function App() {
+  const location = useLocation();
+
+  const isMovieDetailsPage = location.pathname.includes('/movies/');
   return (
-    <div className={css.container}>
+    <div
+      className={`${css.container} ${
+        isMovieDetailsPage ? css.movieDetailsBackground : css.defaultBackground
+      }`}
+    >
       <Title>Search movies!</Title>
       <Navigation />
-
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />

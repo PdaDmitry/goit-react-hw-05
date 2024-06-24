@@ -1,4 +1,19 @@
 .container {
     width: 1440px;
     padding: 20px;
+    min-height: 100vh;
+    z-index: 1;
+}
+
+.defaultBackground {
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../31067628_rm222batch4-mind-25.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.movieDetailsBackground {
+    background-image: none;
 }
